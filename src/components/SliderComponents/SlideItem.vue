@@ -20,11 +20,9 @@ export default defineComponent({
     props: {
         slideImg: {
             type: String,
-            default: '',
         },
         slideCaption: {
             type: String,
-            default: '',
         },
         slideDir: {
             type: String,
@@ -63,6 +61,7 @@ export default defineComponent({
             width: 80%;
             max-width: 80vw;
         }
+
         /*for handle 500% zoom*/
         @media (max-height: 480px) {
             width: 30%;
