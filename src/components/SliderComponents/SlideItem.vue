@@ -9,8 +9,8 @@
             />
 
             <div class="slide-content__title">{{ slideCaption }}</div>
-        </div></transition
-    >
+        </div>
+    </transition>
 </template>
 
 <script lang="ts">
@@ -40,16 +40,14 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .slide-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-height: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    position: absolute;
 
     &__img {
         width: 60%;
@@ -64,6 +62,11 @@ export default defineComponent({
         @media (max-width: 480px) {
             width: 80%;
             max-width: 80vw;
+        }
+        /*for handle 500% zoom*/
+        @media (max-height: 480px) {
+            width: 30%;
+            max-width: 30vw;
         }
     }
 
@@ -82,6 +85,11 @@ export default defineComponent({
 
         @media (max-width: 768px) {
             font-size: 5vw;
+        }
+
+        /*for handle zoom 500%*/
+        @media (max-height: 480px) {
+            margin: 10px 40px;
         }
     }
 }

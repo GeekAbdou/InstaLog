@@ -96,12 +96,12 @@ export default defineComponent({
         return {
             slides,
             currentSlide,
-            nextSlide,
-            slidePick,
-            smoothSlide,
             intervalHandle,
             slideSpeed,
             slideDirection,
+            nextSlide,
+            slidePick,
+            smoothSlide,
         }
     },
 })
@@ -128,6 +128,11 @@ export default defineComponent({
             gap: 8px;
             justify-content: center;
             align-items: center;
+
+            /*for handle 500% zoom*/
+            @media (max-height: 480px) {
+                bottom: 8%;
+            }
 
             &__picker {
                 width: 12px;
