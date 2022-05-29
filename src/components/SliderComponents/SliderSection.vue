@@ -1,12 +1,12 @@
 <template>
     <div class="slider-section">
-        <carousel-slider class="slider-section__carousel">
+        <div class="slider-section__carousel">
             <slide-item
                 v-for="slide in slides"
                 :key="slide.id"
                 :slideImg="slide.src"
                 :slideCaption="slide.caption"
-                v-show="slide.id === 3"
+                v-show="slide.id === currentSlide"
             />
 
             <div
@@ -19,19 +19,18 @@
                     :key="slide.id"
                     :class="{
                         'slider-section__carousel__pagination__picker--active':
-                            slide.id === 3,
+                            slide.id === currentSlide,
                     }"
                 ></span>
             </div>
-        </carousel-slider>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onBeforeUnmount, ref } from 'vue'
 
 import SlideItem from './SlideItem.vue'
-import CarouselSlider from './CarouselSlider.vue'
 
 const slides = [
     {
@@ -54,12 +53,59 @@ const slides = [
 export default defineComponent({
     components: {
         SlideItem,
-        CarouselSlider,
     },
 
     setup() {
+        onBeforeUnmount(() => clearInterval(intervalHandle)) // clear interval on unmount for prevent memory leak
+
+        let currentSlide = ref(1)
+        const slidesLength = slides.length
+        const slideSpeed = ref(4500)
+        let intervalHandle = setInterval(() => {
+            nextSlide()
+        }, slideSpeed.value)
+
+        function nextSlide() {
+            if (currentSlide.value === slidesLength) {
+                currentSlide.value = 1
+            } else {
+                currentSlide.value++
+            }
+            //store.commit('slideDirectionNext')
+            smoothSlide()
+        }
+
+        function prevSlide() {
+            if (currentSlide.value === 1) {
+                currentSlide.value = slidesLength
+            } else {
+                currentSlide.value--
+            }
+            // store.commit('slideDirectionPrev')
+            smoothSlide()
+        }
+
+        const slidePick = (index: number) => {
+            smoothSlide()
+            //store.dispatch('gotoSlide', index + 1)
+        }
+
+        function smoothSlide() {
+            clearInterval(intervalHandle)
+            intervalHandle = setInterval(() => {
+                nextSlide()
+            }, slideSpeed.value)
+        }
+
         return {
             slides,
+            currentSlide,
+            nextSlide,
+            prevSlide,
+            slidePick,
+            smoothSlide,
+            intervalHandle,
+            slideSpeed,
         }
     },
 })
