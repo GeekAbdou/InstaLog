@@ -7,6 +7,7 @@
                 :slideImg="slide.src"
                 :slideCaption="slide.caption"
                 v-show="slide.id === currentSlide"
+                :slideDir="slideDirection"
             />
 
             <div
@@ -17,6 +18,7 @@
                     class="slider-section__carousel__pagination__picker"
                     v-for="slide in slides"
                     :key="slide.id"
+                    @click="slidePick(slide.id)"
                     :class="{
                         'slider-section__carousel__pagination__picker--active':
                             slide.id === currentSlide,
@@ -61,6 +63,7 @@ export default defineComponent({
         let currentSlide = ref(1)
         const slidesLength = slides.length
         const slideSpeed = ref(4500)
+        const slideDirection = ref('slide-left')
         let intervalHandle = setInterval(() => {
             nextSlide()
         }, slideSpeed.value)
@@ -71,23 +74,16 @@ export default defineComponent({
             } else {
                 currentSlide.value++
             }
-            //store.commit('slideDirectionNext')
-            smoothSlide()
-        }
-
-        function prevSlide() {
-            if (currentSlide.value === 1) {
-                currentSlide.value = slidesLength
-            } else {
-                currentSlide.value--
-            }
-            // store.commit('slideDirectionPrev')
+            slideDirection.value = 'slide-right'
             smoothSlide()
         }
 
         const slidePick = (index: number) => {
+            index < currentSlide.value
+                ? (slideDirection.value = 'slide-left')
+                : (slideDirection.value = 'slide-right')
+            currentSlide.value = index
             smoothSlide()
-            //store.dispatch('gotoSlide', index + 1)
         }
 
         function smoothSlide() {
@@ -101,11 +97,11 @@ export default defineComponent({
             slides,
             currentSlide,
             nextSlide,
-            prevSlide,
             slidePick,
             smoothSlide,
             intervalHandle,
             slideSpeed,
+            slideDirection,
         }
     },
 })
