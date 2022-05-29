@@ -1,18 +1,18 @@
 <template id="app">
-    <slider-side />
-    <login-side />
+    <slider-section />
+    <login-section />
 </template>
 
 <script lang="ts">
-import SliderSide from './components/SliderComponents/SliderSide.vue'
-import LoginSide from './components/LoginComponents/LoginSide.vue'
+import SliderSection from './components/SliderComponents/SliderSection.vue'
+import LoginSection from './components/LoginComponents/LoginSection.vue'
 
 import { defineComponent } from 'vue'
 
 export default defineComponent({
     components: {
-        LoginSide,
-        SliderSide,
+        SliderSection,
+        LoginSection,
     },
 })
 </script>
@@ -20,5 +20,11 @@ export default defineComponent({
 <style lang="scss">
 #app {
     display: flex;
+    font-family: $primary-font;
+    background-color: $login-bg-color;
+
+    @media (max-width: 960px) {
+        flex-direction: column;
+    }
 }
 </style>
