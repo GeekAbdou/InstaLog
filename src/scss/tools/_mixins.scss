@@ -1,0 +1,12 @@
+@mixin uppercase {
+    font-family: $body-font;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+@mixin link {
+    display: block;
+    color: $link-color;
+    text-decoration: none;
+}

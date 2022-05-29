@@ -1,0 +1,39 @@
+@import 'utils';
+@import 'positioning';
+@import 'grid';
+@import 'breakpoints';
+
+@mixin responsive-embed($x: 16, $y: 9, $selector: '> :first-child') {
+  height: 0;
+  overflow: hidden;
+  padding: 0 0 unquote(( $y / $x ) * 100 + '%');
+  position: relative;
+  width: 100%;
+
+  #{$selector},
+  iframe,
+  embed,
+  object,
+  video {
+    @include absolute(top 0 left 0 bottom 0);
+
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@mixin responsive-col($breakpoints) {
+  @each $breakpoint-query, $value in $breakpoints {
+    @include media-breakpoint-variant($breakpoint-query) {
+      @include col($value);
+    }
+  }
+}
+
+@mixin responsive-prop($prop, $breakpoints) {
+  @each $breakpoint-query, $value in $breakpoints {
+    @include media-breakpoint-variant($breakpoint-query) {
+      #{$prop}: $value;
+    }
+  }
+}

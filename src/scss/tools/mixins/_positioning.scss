@@ -1,0 +1,57 @@
+@import '~bootstrap/scss/mixins/clearfix';
+@import '~bootstrap/scss/mixins/size';
+
+// Default variables
+$z-indexes: (
+  'modal',
+  'header',
+  'body',
+  'footer'
+) !default;
+
+// Mixins
+@mixin z-index($name) {
+  @if index($z-indexes, $name) {
+    z-index: (length($z-indexes) - index($z-indexes, $name)) + 1;
+  }
+  @else {
+    @error 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+  }
+}
+
+@mixin pseudo($display: block, $content: '') {
+  content: $content;
+  display: $display;
+}
+
+@mixin position-variant($position, $args) {
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+
+    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
+
+  position: $position;
+}
+
+@mixin absolute($args: '') {
+  @include position-variant(absolute, $args);
+}
+
+@mixin fixed($args: '') {
+  @include position-variant(fixed, $args);
+}
+
+@mixin relative($args: '') {
+  @include position-variant(relative, $args);
+}
+
+@mixin sticky($args: '') {
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+
+  @include position-variant(sticky, $args);
+}

@@ -1,0 +1,123 @@
+// grid
+@use "sass:math";
+$width: 98%;
+$gutter: 2%;
+$breakpoint-small: 768px; //33.75em; // 540px
+$breakpoint-med: 992px; //45em; // 720px
+$breakpoint-large: 1200px; // 60em; // 960px
+
+.row {
+  width: 100%;
+}
+
+.row--centered {
+  align-items: center;
+}
+
+.row [class^="col"] {
+  min-height: 0.125rem;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+  width: $width;
+}
+
+.col-1-sm {
+  width: math.div($width, 12) - ($gutter * math.div(11, 12));
+}
+.col-2-sm {
+  width: math.div($width, 6) - ($gutter * math.div(10, 12));
+}
+.col-3-sm {
+  width: math.div($width, 4) - ($gutter * math.div(9, 12));
+}
+.col-4-sm {
+  width: math.div($width, 3) - ($gutter * math.div(8, 12));
+}
+.col-5-sm {
+  width: math.div($width, math.div(12, 5)) - ($gutter * math.div(7, 12));
+}
+.col-6-sm {
+  width: math.div($width, 2) - ($gutter * math.div(6, 12));
+}
+.col-7-sm {
+  width: math.div($width, math.div(12, 7)) - ($gutter * math.div(5, 12));
+}
+.col-8-sm {
+  width: math.div($width, math.div(12, 8)) - ($gutter * math.div(4, 12));
+}
+.col-9-sm {
+  width: math.div($width, math.div(12, 9)) - ($gutter * math.div(3, 12));
+}
+.col-10-sm {
+  width: math.div($width, math.div(12, 10)) - ($gutter * math.div(2, 12));
+}
+.col-11-sm {
+  width: math.div($width, math.div(12, 11)) - ($gutter * math.div(1, 12));
+}
+.col-12-sm {
+  width: $width;
+}
+
+@media only screen and (min-width: $breakpoint-med) {
+  .row {
+    display: flex;
+    //justify-content: space-between;
+  }
+  .row--spaced {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .col-1 {
+    width: math.div($width, 12) - ($gutter * math.div(11, 12));
+  }
+  .col-2 {
+    width: math.div($width, 6) - ($gutter * math.div(10, 12));
+  }
+  .col-3 {
+    width: math.div($width, 4) - ($gutter * math.div(9, 12));
+  }
+  .col-4 {
+    width: math.div($width, 3) - ($gutter * math.div(8, 12));
+  }
+  .col-5 {
+    width: math.div($width, math.div(12, 5)) - ($gutter * math.div(7, 12));
+  }
+  .col-6 {
+    width: math.div($width, 2) - ($gutter * 6 / 12);
+  }
+  .col-7 {
+    width: math.div($width, math.div(12, 7)) - ($gutter * math.div(5, 12));
+  }
+  .col-8 {
+    width: math.div($width, math.div(12, 8)) - ($gutter * math.div(4, 12));
+  }
+  .col-9 {
+    width: math.div($width, math.div(12, 9)) - ($gutter * math.div(3, 12));
+  }
+  .col-10 {
+    width: math.div($width, math.div(12, 10)) - ($gutter * math.div(2, 12));
+  }
+  .col-11 {
+    width: math.div($width, math.div(12, 11)) - ($gutter * math.div(1, 12));
+  }
+  .col-12 {
+    width: $width;
+  }
+
+  .hidden-sm {
+    display: block;
+  }
+}
