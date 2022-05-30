@@ -12,6 +12,7 @@
     "core-js": "^3.8.3",
     "cypress": "^9.6.0",
     "vue": "^3.2.13",
+    "vue-router": "^4.0.15",
     "vuex": "^4.0.0"
   },
   "devDependencies": {

@@ -1,28 +1,26 @@
-<template id="app">
-    <slider-section />
-    <login-section />
+<template>
+    <router-link to="/Login"></router-link>
+    <router-view />
 </template>
 
 <script lang="ts">
-import SliderSection from './components/SliderComponents/SliderSection.vue'
-import LoginSection from './components/LoginComponents/LoginSection.vue'
-
 import { defineComponent } from 'vue'
+import { useStore } from './store'
 
 export default defineComponent({
-    components: {
-        SliderSection,
-        LoginSection,
+    created() {
+        const store = useStore()
+        store.dispatch('autoLogin')
     },
 })
 </script>
 
 <style lang="scss">
 #app {
-    display: flex;
     font-family: $primary-font;
     background-color: $login-bg-color;
 
+    display: flex;
     @media (max-width: 960px) {
         flex-direction: column;
     }

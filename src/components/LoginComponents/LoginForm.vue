@@ -1,14 +1,15 @@
 <template>
     <div class="login-wrapper">
-        <form class="login-wrapper__login-form">
+        <form class="login-wrapper__login-form" @submit.prevent="login">
             <Form-Text-Field
                 placeHolder="you@company.com"
                 fieldType="email"
                 labelTitle="Work Email"
                 labelLink=""
                 errorMessage="Enter a valid email address."
-                inputName="email"
+                @inputChanged="emailChanged"
                 :isValidInput="emailValid"
+                inputName="email"
             />
 
             <Form-Text-Field
@@ -16,12 +17,21 @@
                 fieldType="password"
                 labelTitle="Password"
                 labelLink=" Forgot Password?"
-                errorMessage="Password must be 6 characters or more."
-                inputName="password"
+                errorMessage="Password must be 8 characters or more."
+                @inputChanged="passwordChanged"
                 :isValidInput="passwordValid"
+                inputName="password"
             />
 
-            <button class="login-wrapper__login-form__login-btn">Log in</button>
+            <button
+                class="login-wrapper__login-form__login-btn"
+                :class="{
+                    'login-wrapper__login-form__login-btn--disabled':
+                        LoginDisabled,
+                }"
+            >
+                Log in
+            </button>
         </form>
 
         <div class="login-wrapper__sign-up">
@@ -36,17 +46,91 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import { useStore } from '@/store'
+import router from '@/router'
 
 import FormTextField from '@/components/global/FormTextField.vue'
+//LoginDisabled ? "" : ""
 export default defineComponent({
     components: {
         FormTextField,
     },
-    data() {
+
+    setup() {
+        const store = useStore()
+        const emailInput = ref('')
+        const passwordInput = ref('')
+        const emailValid = ref(true)
+        const passwordValid = ref(true)
+        const loginFailed = ref(false)
+        const LoginDisabled = ref(true)
+        const emailName = ref('')
+
+        function emailChanged(e: Event) {
+            emailInput.value = (e.target as HTMLInputElement).value
+            emailValid.value = validateEmail(emailInput.value)
+            emailName.value = emailInput.value.substring(
+                0,
+                emailInput.value.indexOf('@')
+            )
+        }
+
+        function passwordChanged(e: Event) {
+            passwordInput.value = (e.target as HTMLInputElement).value
+            passwordValid.value = validatePassword(passwordInput.value)
+            LoginDisabled.value = !(emailValid.value && passwordValid.value)
+        }
+
+        function validateEmail(email: string) {
+            const emailRegExp = RegExp(
+                // eslint-disable-next-line
+                /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )
+            return emailRegExp.test(String(email))
+        }
+
+        function validatePassword(password: string) {
+            // eslint-disable-next-line
+            let passwordRegExp = RegExp(
+                /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+            )
+
+            if (
+                !password.includes(emailName.value) &&
+                password.length >= 8 &&
+                !passwordRegExp.test(String(password))
+            ) {
+                return true
+            }
+            return false
+        }
+
+        const login = async () => {
+            store.dispatch('login', {
+                email: emailInput.value,
+                password: passwordInput.value,
+            })
+            const isAuthenticated = store.getters.isAuth
+            isAuthenticated
+                ? router.push('/welcome')
+                : (loginFailed.value = true)
+        }
+
         return {
-            emailValid: true,
-            passwordValid: false,
+            emailInput,
+            emailName,
+            passwordInput,
+            emailValid,
+            passwordValid,
+            loginFailed,
+            LoginDisabled,
+            store,
+            emailChanged,
+            passwordChanged,
+            validateEmail,
+            validatePassword,
+            login,
         }
     },
 })
@@ -76,6 +160,16 @@ export default defineComponent({
 
             &:hover {
                 background-color: #0099ff;
+            }
+
+            &--disabled {
+                background-color: #ccc;
+                color: #fff;
+                cursor: not-allowed;
+
+                &:hover {
+                    background-color: #ccc;
+                }
             }
         }
     }

@@ -20,6 +20,8 @@
                         : 'field-wrapper__input__type-field--error',
                 ]"
                 :placeholder="placeHolder"
+                @keyup="keyPressed"
+                @blur="keyPressed"
                 :name="inputName"
             />
         </div>
@@ -55,7 +57,14 @@ export default defineComponent({
         inputName: {
             type: String,
         },
+        inputChanged: Function,
         isValidInput: Boolean,
+    },
+
+    methods: {
+        keyPressed(e: Event) {
+            this.$emit('inputChanged', e)
+        },
     },
 })
 </script>
