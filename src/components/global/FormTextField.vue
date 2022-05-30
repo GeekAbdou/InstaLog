@@ -13,12 +13,10 @@
         <div class="field-wrapper__input">
             <input
                 :type="fieldType"
-                :class="[
-                    'field-wrapper__input__type-field',
-                    isValidInput
-                        ? ''
-                        : 'field-wrapper__input__type-field--error',
-                ]"
+                class="'field-wrapper__input__type-field'"
+                :class="{
+                    'field-wrapper__input__type-field--error': isValidInput,
+                }"
                 :placeholder="placeHolder"
                 @keyup="keyPressed"
                 @blur="keyPressed"
