@@ -1,25 +1,25 @@
 .container {
-    //position: relative;
-    //padding: 15px;
+    position: relative;
+    padding: 15px;
 }
 
 /* Small */
 @media (min-width: 768px) {
     .container {
-        //  width: 750px;
+        width: 750px;
     }
 }
 
 /* Medium */
 @media (min-width: 992px) {
     .container {
-        //width: 970px;
+        width: 970px;
     }
 }
 
 /* Large */
 @media (min-width: 1200px) {
     .container {
-        // width: 1170px;
+        width: 1170px;
     }
 }
