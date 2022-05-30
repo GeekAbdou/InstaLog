@@ -46,7 +46,6 @@ router.beforeEach((to, from, next) => {
 
     if (to.matched.some((route) => route.meta.requiresAuth)) {
         if (!isAuth) {
-            console.log('user not logged in')
             next('/login')
         } else {
             next()
