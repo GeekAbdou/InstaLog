@@ -30,14 +30,20 @@
         </div>
 
         <div class="login-body__separator"></div>
+
+        <div class="login-body__login-form"><LoginForm /></div>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+import LoginForm from './LoginForm.vue'
+
 export default defineComponent({
-    components: {},
+    components: {
+        LoginForm,
+    },
 })
 </script>
 
