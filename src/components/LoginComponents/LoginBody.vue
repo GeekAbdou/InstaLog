@@ -28,6 +28,8 @@
                 <span class="login-body__login-with__text">Microsoft</span>
             </button>
         </div>
+
+        <div class="login-body__separator"></div>
     </div>
 </template>
 
@@ -74,6 +76,22 @@ export default defineComponent({
             font-family: 'Poppins', sans-serif;
             font-size: 14px;
             font-weight: 500;
+        }
+    }
+
+    &__separator {
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: 1px solid #d3d3d3;
+        line-height: 0.1em;
+        margin: 28px 0;
+
+        &::before {
+            content: 'OR';
+            background: #f2f4f8;
+            padding: 0 12px;
+            color: #585858;
         }
     }
 }
