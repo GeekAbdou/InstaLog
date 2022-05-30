@@ -1,7 +1,4 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '@/views/LoginView.vue'
-import WelcomeView from '@/views/WelcomeView.vue'
-import ErrorNotView from '@/views/NotFoundView.vue'
 
 import { store } from '@/store'
 
@@ -13,18 +10,18 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/Login',
         name: 'Login',
-        component: HomeView,
+        component: () => import('@/views/LoginView.vue'),
         meta: { requiresGuest: true, title: 'Login | Instabug' },
     },
     {
         path: '/welcome',
         name: 'welcome',
-        component: WelcomeView,
+        component: () => import('@/views/WelcomeView.vue'),
         meta: { requiresAuth: true, title: 'Welcome | Instabug' },
     },
     {
         path: '/404',
-        component: ErrorNotView,
+        component: () => import('@/views/NotFoundView.vue'),
         meta: { title: 'User Feedback & Bug reporting' },
     },
     {

@@ -13,9 +13,9 @@
         <div class="field-wrapper__input">
             <input
                 :type="fieldType"
-                class="'field-wrapper__input__type-field'"
+                class="field-wrapper__input__type-field"
                 :class="{
-                    'field-wrapper__input__type-field--error': isValidInput,
+                    'field-wrapper__input__type-field--error': !isValidInput,
                 }"
                 :placeholder="placeHolder"
                 @keyup="keyPressed"
