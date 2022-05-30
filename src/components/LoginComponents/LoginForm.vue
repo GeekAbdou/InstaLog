@@ -1,6 +1,16 @@
 <template>
     <div class="login-wrapper">
         <form class="login-wrapper__login-form" @submit.prevent="login">
+            <transition name="fade">
+                <div
+                    v-if="loginFailed"
+                    class="login-wrapper__login-form__alert"
+                    data-cy="logAlert"
+                >
+                    Your email and/or password are incorrect!
+                </div>
+            </transition>
+
             <Form-Text-Field
                 placeHolder="you@company.com"
                 fieldType="email"
@@ -24,6 +34,7 @@
             />
 
             <button
+                data-cy="logBtn"
                 class="login-wrapper__login-form__login-btn"
                 :class="{
                     'login-wrapper__login-form__login-btn--disabled':
@@ -51,7 +62,6 @@ import { useStore } from '@/store'
 import router from '@/router'
 
 import FormTextField from '@/components/global/FormTextField.vue'
-//LoginDisabled ? "" : ""
 export default defineComponent({
     components: {
         FormTextField,
@@ -171,6 +181,17 @@ export default defineComponent({
                     background-color: #ccc;
                 }
             }
+        }
+
+        &__alert {
+            margin: 0 0 1rem 0;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            background-color: #fad5ce;
+            border-radius: 4px;
+            color: #445065;
+            display: flex;
+            padding: 12px 12px;
+            font-size: 14px;
         }
     }
 

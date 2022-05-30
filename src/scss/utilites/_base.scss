@@ -25,5 +25,8 @@ ul {
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: #09f;
+    &:hover {
+        color: #16253f;
+    }
 }
