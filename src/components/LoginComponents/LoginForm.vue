@@ -34,12 +34,13 @@
             />
 
             <button
-                data-cy="logBtn"
                 class="login-wrapper__login-form__login-btn"
                 :class="{
                     'login-wrapper__login-form__login-btn--disabled':
                         LoginDisabled,
                 }"
+                :disabled="LoginDisabled"
+                data-cy="logBtn"
             >
                 Log in
             </button>

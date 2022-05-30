@@ -23,6 +23,16 @@ describe('Scenario 2', () => {
 })
 
 describe('Scenario 3', () => {
+    it('Checks for correct email & password', () => {
+        cy.visit('/login')
+        cy.get('[data-cy=email]').type('mohamed@instabug.com')
+        cy.get('[data-cy=password]').type('A12345678')
+        cy.get('[data-cy=logBtn]').click()
+        cy.get('[data-cy=welMessage]').contains('Welcome, mohamed@instabug.com')
+    })
+})
+
+describe('Scenario 4', () => {
     it('Checks for wrong email format', () => {
         cy.visit('/login')
         cy.get('[data-cy=email]').type('wrongEmail')
