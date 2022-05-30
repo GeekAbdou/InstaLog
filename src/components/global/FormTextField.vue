@@ -23,10 +23,22 @@
                 @keyup="keyPressed"
                 @blur="keyPressed"
                 :name="inputName"
+                :data-cy="inputName"
             />
+
+            <span
+                v-if="inputName === 'password'"
+                :class="togglePassword"
+                role="button"
+                @click="togglePasswordVisibility"
+            ></span>
         </div>
 
-        <p v-if="!isValidInput" class="field-wrapper--error-message">
+        <p
+            v-if="!isValidInput"
+            class="field-wrapper--error-message"
+            data-cy="errorMessage"
+        >
             {{ errorMessage }}
         </p>
     </div>
@@ -64,7 +76,30 @@ export default defineComponent({
     methods: {
         keyPressed(e: Event) {
             this.$emit('inputChanged', e)
+            //TODO: Add Debouncing to increase Performance
         },
+    },
+
+    setup() {
+        const passwordField = ref(document.getElementsByName('password'))
+        let togglePassword = ref('icon-eye-blocked')
+
+        function togglePasswordVisibility() {
+            const type =
+                passwordField.value[0].getAttribute('type') === 'password'
+                    ? 'text'
+                    : 'password'
+            passwordField.value[0].setAttribute('type', type)
+
+            togglePassword.value === 'icon-eye-blocked'
+                ? (togglePassword.value = 'icon-eye')
+                : (togglePassword.value = 'icon-eye-blocked')
+        }
+
+        return {
+            togglePasswordVisibility,
+            togglePassword,
+        }
     },
 })
 </script>
@@ -135,5 +170,21 @@ export default defineComponent({
         padding-left: 4px;
         margin-bottom: 12px;
     }
+}
+
+.icon-eye,
+.icon-eye-blocked {
+    display: inline-block;
+    position: absolute;
+    padding: 12px;
+    cursor: pointer;
+    right: 0;
+
+    &::before {
+        content: '\e9ce';
+    }
+}
+.icon-eye-blocked:before {
+    content: '\e9d1';
 }
 </style>

@@ -79,7 +79,7 @@ export default defineComponent({
         }
 
         &__text {
-            font-family: 'Poppins', sans-serif;
+            font-family: $secondary-font;
             font-size: 14px;
             font-weight: 500;
         }
