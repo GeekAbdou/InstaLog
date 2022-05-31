@@ -23,7 +23,6 @@
                 :name="inputName"
                 :data-cy="inputName"
             />
-
             <span
                 v-if="inputName === 'password'"
                 :class="togglePassword"
@@ -71,16 +70,18 @@ export default defineComponent({
         isValidInput: Boolean,
     },
 
-    methods: {
-        keyPressed(e: Event) {
-            this.$emit('inputChanged', e)
-            //TODO: Add Debouncing to increase Performance
-        },
-    },
-
-    setup() {
+    setup(props, { emit }) {
         const passwordField = ref(document.getElementsByName('password'))
         let togglePassword = ref('icon-eye-blocked')
+
+        function keyPressed(e: Event) {
+            // InputChange with Debouncing
+            let timer: ReturnType<typeof setTimeout> = 300
+            if (timer) clearTimeout(timer)
+            timer = setTimeout(() => {
+                emit('inputChanged', e)
+            }, 300)
+        }
 
         function togglePasswordVisibility() {
             const type =
@@ -97,6 +98,7 @@ export default defineComponent({
         return {
             togglePasswordVisibility,
             togglePassword,
+            keyPressed,
         }
     },
 })
@@ -167,6 +169,7 @@ export default defineComponent({
         font-size: 12px;
         padding-left: 4px;
         margin-bottom: 12px;
+        margin-top: -8px; /*Not revesing the flow => just for make it pixel perfect as it sent @ the document*/
     }
 }
 

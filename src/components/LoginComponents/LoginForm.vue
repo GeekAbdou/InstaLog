@@ -27,7 +27,7 @@
                 fieldType="password"
                 labelTitle="Password"
                 labelLink=" Forgot Password?"
-                errorMessage="Password must be 8 characters or more."
+                errorMessage="Password must be 6 characters or more."
                 @inputChanged="passwordChanged"
                 :isValidInput="passwordValid"
                 inputName="password"
@@ -63,6 +63,7 @@ import { useStore } from '@/store'
 import router from '@/router'
 
 import FormTextField from '@/components/global/FormTextField.vue'
+
 export default defineComponent({
     components: {
         FormTextField,
@@ -103,8 +104,10 @@ export default defineComponent({
 
         function validatePassword(password: string) {
             // eslint-disable-next-line
+            // regex for a password that have more than 6 numbers and at least one character
+
             let passwordRegExp = RegExp(
-                /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{6,}$/
             )
 
             if (
