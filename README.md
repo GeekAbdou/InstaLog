@@ -2,12 +2,7 @@
 <h1 align="center">InstaLog - Instabug FrontEnd Intership Challenge</h1>
 
 
-
 <div align="center">
-
-
-
-  
  <img src="./src/assets/imgs/instabug-logo.svg" alt="Instabug-Logo" width="240">
 </div>
 
@@ -172,33 +167,31 @@ InstaLog
 
 <h3 align="center">OverView With User Experience</h3>
 
- <img src="./Docs/userExperiance.gif" alt="Ux">
-
-
+![image](https://raw.githubusercontent.com/GeekAbdou/InstaLog/main/Docs/userExperiance.gif?token=GHSAT0AAAAAABTWBUMOVUPXWBCXMM3DCXC6YUXQEPA)
 
 <hr />
 
 <h3 align="center">Responsive Test [MultiScreen test]</h3>
 
-<img src="./Docs/multiScreen.gif" alt="MultiScreen">
+![image](https://raw.githubusercontent.com/GeekAbdou/InstaLog/main/Docs/multiScreen.gif?token=GHSAT0AAAAAABTWBUMPHP4B4JDP37IK66B4YUXQFMQ)
 
 <hr />
 
 <h3 align="center">Responsive Test [Zoom test]</h3>
 
-<img src="./Docs/ZoomTest.gif" alt="ZoomTest">
+![image](https://raw.githubusercontent.com/GeekAbdou/InstaLog/main/Docs/ZoomTest.gif?token=GHSAT0AAAAAABTWBUMPGFOKHVVZZP3ZYT3UYUXQFTQ)
 
 <hr />
 
 <h3 align="center">e2e Testing</h3>
 
-<img src="./Docs/ZoomTest.gif" alt="Ux">
+![image](https://raw.githubusercontent.com/GeekAbdou/InstaLog/main/Docs/e2eTesting.gif?token=GHSAT0AAAAAABTWBUMPX5VHYB3VQW634VC6YUXQF3Q)
 
 <hr />
 
 <h3 align="center">Light House Performance Audit (After implementation on Real Server)</h3>
 
-<img src="./Docs/Performance.png" alt="Ux">
+![image](https://raw.githubusercontent.com/GeekAbdou/InstaLog/main/Docs/Performance.png?token=GHSAT0AAAAAABTWBUMPAJDJS2EB7NBQKYQ6YUXQGNQ)
 
 <hr />
 
