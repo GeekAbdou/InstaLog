@@ -6,8 +6,9 @@
 <div align="center">
 
 
-  <img src="https://raw.githubusercontent.com/GeekAbdou/InstaLog/fb65ad99cb161473ecad8898c66ce6a0fc4a99b8/src/assets/imgs/instabug-logo.svg?token=AJ6W2VSVQYLVS7FN2A62CNDCS5YA6" width="200" alt="instabug logo">
+
   
+ <img src="./src/assets/imgs/instabug-logo.svg" alt="Instabug-Logo" width="240">
 </div>
 
 ## Table of Contents
@@ -171,31 +172,33 @@ InstaLog
 
 <h3 align="center">OverView With User Experience</h3>
 
-![image](https://raw.githubusercontent.com/GeekAbdou/InstaLog/main/Docs/userExperiance.gif?token=GHSAT0AAAAAABTWBUMOVUPXWBCXMM3DCXC6YUXQEPA)
+ <img src="./Docs/userExperiance.gif" alt="Ux">
+
+
 
 <hr />
 
 <h3 align="center">Responsive Test [MultiScreen test]</h3>
 
-![image](https://raw.githubusercontent.com/GeekAbdou/InstaLog/main/Docs/multiScreen.gif?token=GHSAT0AAAAAABTWBUMPHP4B4JDP37IK66B4YUXQFMQ)
+<img src="./Docs/multiScreen.gif" alt="MultiScreen">
 
 <hr />
 
 <h3 align="center">Responsive Test [Zoom test]</h3>
 
-![image](https://raw.githubusercontent.com/GeekAbdou/InstaLog/main/Docs/ZoomTest.gif?token=GHSAT0AAAAAABTWBUMPGFOKHVVZZP3ZYT3UYUXQFTQ)
+<img src="./Docs/ZoomTest.gif" alt="ZoomTest">
 
 <hr />
 
 <h3 align="center">e2e Testing</h3>
 
-![image](https://raw.githubusercontent.com/GeekAbdou/InstaLog/main/Docs/e2eTesting.gif?token=GHSAT0AAAAAABTWBUMPX5VHYB3VQW634VC6YUXQF3Q)
+<img src="./Docs/ZoomTest.gif" alt="Ux">
 
 <hr />
 
 <h3 align="center">Light House Performance Audit (After implementation on Real Server)</h3>
 
-![image](https://raw.githubusercontent.com/GeekAbdou/InstaLog/main/Docs/Performance.png?token=GHSAT0AAAAAABTWBUMPAJDJS2EB7NBQKYQ6YUXQGNQ)
+<img src="./Docs/Performance.png" alt="Ux">
 
 <hr />
 
