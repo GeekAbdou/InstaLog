@@ -115,13 +115,10 @@ export default defineComponent({
         justify-content: space-between;
 
         &__label-title {
-            display: flex;
-            justify-self: start;
             font-weight: 600;
             color: #445065;
             font-size: 14px;
-            margin-bottom: 8px;
-            width: fit-content;
+            padding-bottom: 8px;
         }
 
         &__link {
