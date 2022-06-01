@@ -22,8 +22,8 @@ export default {}
     flex-direction: column;
 
     &__logo__img {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         margin-bottom: 18px;
     }
 
