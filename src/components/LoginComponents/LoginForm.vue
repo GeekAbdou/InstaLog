@@ -104,16 +104,14 @@ export default defineComponent({
 
         function validatePassword(password: string) {
             // eslint-disable-next-line
-            // regex for a password that have more than 6 numbers and at least one character
-
             let passwordRegExp = RegExp(
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{6,}$/
+                /^(?=.*[0-9])(?=.*[A-Z])([a-zA-Z0-9]+)$/
             )
 
             if (
                 !password.includes(emailName.value) &&
-                password.length >= 8 &&
-                !passwordRegExp.test(String(password))
+                password.length >= 6 &&
+                passwordRegExp.test(String(password))
             ) {
                 return true
             }

@@ -169,7 +169,7 @@ export default defineComponent({
         font-size: 12px;
         padding-left: 4px;
         margin-bottom: 12px;
-        margin-top: -8px; /*Not revesing the flow => just for make it pixel perfect as it sent @ the document*/
+        margin-top: -8px; /*Not reversing the flow => just for make it pixel perfect as it sent @ the document*/
     }
 }
 
