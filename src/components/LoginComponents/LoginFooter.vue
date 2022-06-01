@@ -51,17 +51,14 @@ export default defineComponent({
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
         margin-bottom: 1rem;
         width: 70%;
         margin: 0 auto;
 
         &__item {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-            margin: 10px 10px 10px 0;
+            padding: 10px;
+            padding-left: 0;
             width: fit-content;
             height: fit-content;
         }

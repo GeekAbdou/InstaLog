@@ -70,7 +70,6 @@ export default defineComponent({
         inputName: {
             type: String,
         },
-        inputChanged: Function,
         isValidInput: Boolean,
     },
 
