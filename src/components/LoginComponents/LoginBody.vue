@@ -3,6 +3,7 @@
         <div class="login-body__login-with">
             <button class="login-body__login-with__btn google">
                 <img
+                    draggable="false"
                     class="login-body__login-with__img"
                     src="../../assets/imgs/google-logo.svg"
                     alt="Google-img"
@@ -12,6 +13,7 @@
 
             <button class="login-body__login-with__btn github">
                 <img
+                    draggable="false"
                     class="login-body__login-with__img"
                     src="../../assets/imgs/git-logo.svg"
                     alt="GitHub-img"
@@ -21,6 +23,7 @@
 
             <button class="login-body__login-with__btn microsoft">
                 <img
+                    draggable="false"
                     class="login-body__login-with__img"
                     src="../../assets/imgs/microsoft-logo.svg"
                     alt="Mircosoft-img"
@@ -37,9 +40,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
 import LoginForm from './LoginForm.vue'
-
 export default defineComponent({
     components: {
         LoginForm,
@@ -53,12 +54,10 @@ export default defineComponent({
     flex-direction: column;
     margin: 16px 0;
     width: 64%;
-
     &__login-with {
         display: flex;
         flex-direction: column;
         margin-top: 16px;
-
         &__btn {
             display: flex;
             align-items: center;
@@ -70,21 +69,18 @@ export default defineComponent({
             border-radius: 4px;
             cursor: pointer;
         }
-
         &__img {
             position: absolute;
             left: 0;
             width: 26px;
             margin: 0 8px;
         }
-
         &__text {
             font-family: $secondary-font;
             font-size: 14px;
             font-weight: 500;
         }
     }
-
     &__separator {
         width: 100%;
         font-size: 16px;
@@ -92,7 +88,6 @@ export default defineComponent({
         border-bottom: 1px solid #d3d3d3;
         line-height: 0.1em;
         margin: 28px 0;
-
         &::before {
             content: 'OR';
             background: #f2f4f8;
@@ -101,7 +96,6 @@ export default defineComponent({
         }
     }
 }
-
 .google {
     color: #fff;
     background-color: #4285f4;
