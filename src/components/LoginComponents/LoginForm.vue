@@ -81,11 +81,11 @@ export default defineComponent({
 
         function emailChanged(e: Event) {
             emailInput.value = (e.target as HTMLInputElement).value
-            emailValid.value = validateEmail(emailInput.value)
             emailName.value = emailInput.value.substring(
                 0,
                 emailInput.value.indexOf('@')
             )
+            emailValid.value = validateEmail(emailInput.value)
         }
 
         function passwordChanged(e: Event) {
@@ -162,7 +162,7 @@ export default defineComponent({
             justify-content: center;
             height: 40px;
             margin-bottom: 8px;
-            padding: 4px 4px;
+            padding: 4px;
             position: relative;
             border-radius: 4px;
             cursor: pointer;
@@ -186,13 +186,13 @@ export default defineComponent({
         }
 
         &__alert {
-            margin: 0 0 1rem 0;
+            margin-bottom: 1rem;
             border: 1px solid rgba(0, 0, 0, 0.25);
             background-color: #fad5ce;
             border-radius: 4px;
             color: #445065;
             display: flex;
-            padding: 12px 12px;
+            padding: 12px;
             font-size: 14px;
         }
     }
