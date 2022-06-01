@@ -58,10 +58,9 @@
 - [BEM Methodology](http://getbem.com/)
 - [itCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
 - [Cypress](https://www.cypress.io/)
-- [Jest](https://jestjs.io/)
 </div>
 
-<div id"getting-started">.
+<div id"getting-started">
 
 ## Getting Started
 > This is an list of needed instructions to set up your project locally, to get a local copy up and running follow these instructuins.
