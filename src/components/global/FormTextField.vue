@@ -5,7 +5,11 @@
                 {{ labelTitle }}
             </label>
 
-            <a class="field-wrapper__label__link" href="#Forget">
+            <a
+                class="field-wrapper__label__link"
+                href="#Forget"
+                v-if="inputName === 'password'"
+            >
                 {{ labelLink }}
             </a>
         </div>
