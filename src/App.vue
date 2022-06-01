@@ -18,7 +18,7 @@ export default defineComponent({
 <style lang="scss">
 #app {
     font-family: $primary-font;
-    background-color: $login-bg-color;
+    background-color: $slider-bg-color;
 
     display: flex;
     @media (max-width: 960px) {

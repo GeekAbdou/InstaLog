@@ -113,7 +113,7 @@ export default defineComponent({
     background-color: $slider-bg-color;
     width: 100%;
     height: 100vh;
-
+    margin: auto 0;
     &__carousel {
         position: relative;
         width: 100%;
@@ -145,6 +145,11 @@ export default defineComponent({
 
                 &--active {
                     background-color: #fff;
+                }
+                /*for handle 500% zoom*/
+                @media (max-height: 480px) {
+                    width: 8px;
+                    height: 8px;
                 }
             }
         }
