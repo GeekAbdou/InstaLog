@@ -35,6 +35,10 @@ export default defineComponent({
     background-color: $login-bg-color;
     margin: auto 0;
 
+    @media (max-height: 720px) {
+        height: 100%;
+    }
+
     @media (max-width: 960px) {
         height: 100%;
     }

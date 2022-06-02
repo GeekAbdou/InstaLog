@@ -1,10 +1,6 @@
 <template>
     <div class="not-found">
-        <img
-            class="not-found__img"
-            src="@/assets/imgs/404.png"
-            alt="Not found"
-        />
+        <Error404NotFound />
 
         <h1 class="not-found__title">404-Page Not Found!</h1>
 
@@ -14,8 +10,16 @@
     </div>
 </template>
 
-<script>
-export default {}
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+import Error404NotFound from '@/components/global/Error404NotFound.vue'
+
+export default defineComponent({
+    components: {
+        Error404NotFound,
+    },
+})
 </script>
 
 <style lang="scss">

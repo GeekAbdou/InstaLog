@@ -42,8 +42,8 @@ export default {
     height: 100vh;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
-
+    background-color: $login-bg-color;
+    width: 100%;
     &__message {
         font-size: 1.5vw;
         font-weight: bold;

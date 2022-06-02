@@ -23,11 +23,11 @@
             />
 
             <Form-Text-Field
-                placeHolder="8+ Characters"
+                placeHolder="6+ Characters"
                 fieldType="password"
                 labelTitle="Password"
                 labelLink=" Forgot Password?"
-                errorMessage="Password must be 6 characters or more."
+                :errorMessage="passwordErrorMessage"
                 @inputChanged="passwordChanged"
                 :isValidInput="passwordValid"
                 inputName="password"
@@ -78,6 +78,8 @@ export default defineComponent({
         const loginFailed = ref(false)
         const LoginDisabled = ref(true)
         const emailName = ref('')
+        let passwordTouched = ref(false)
+        let passwordErrorMessage = ref('')
 
         function emailChanged(e: Event) {
             emailInput.value = (e.target as HTMLInputElement).value
@@ -86,12 +88,16 @@ export default defineComponent({
                 emailInput.value.indexOf('@')
             )
             emailValid.value = validateEmail(emailInput.value)
+            if (passwordTouched.value) {
+                LoginDisabled.value = !(emailValid.value && passwordValid.value)
+            }
         }
 
         function passwordChanged(e: Event) {
             passwordInput.value = (e.target as HTMLInputElement).value
             passwordValid.value = validatePassword(passwordInput.value)
             LoginDisabled.value = !(emailValid.value && passwordValid.value)
+            passwordTouched.value = true
         }
 
         function validateEmail(email: string) {
@@ -104,18 +110,21 @@ export default defineComponent({
 
         function validatePassword(password: string) {
             // eslint-disable-next-line
-            let passwordRegExp = RegExp(
-                /^(?=.*[0-9])(?=.*[A-Z])([a-zA-Z0-9]+)$/
-            )
-
-            if (
-                !password.includes(emailName.value) &&
-                password.length >= 6 &&
-                passwordRegExp.test(String(password))
-            ) {
-                return true
+            let passwordRegExp = RegExp(/^(?=.*[A-Z])(?=.*[0-9])/)
+            if (password.length <= 6) {
+                passwordErrorMessage.value =
+                    'Password Should be at least 6 characters'
+                return false
+            } else if (password.includes(emailName.value)) {
+                passwordErrorMessage.value =
+                    "Password Shouldn't have email name"
+                return false
+            } else if (!passwordRegExp.test(String(password))) {
+                passwordErrorMessage.value =
+                    'Password Should Have at lest 1 upperCase letter and 1 number'
+                return false
             }
-            return false
+            return true
         }
 
         const login = async () => {
@@ -143,6 +152,8 @@ export default defineComponent({
             validateEmail,
             validatePassword,
             login,
+            passwordErrorMessage,
+            passwordTouched,
         }
     },
 })
