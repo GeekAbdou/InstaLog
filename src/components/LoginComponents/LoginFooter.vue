@@ -1,5 +1,5 @@
 <template>
-    <div class="login-footer">
+    <section class="login-footer">
         <div class="login-footer__title">Trusted by the top companies.</div>
 
         <div class="login-footer__icons">
@@ -11,7 +11,7 @@
                 class="login-footer__icons__item"
             />
         </div>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">

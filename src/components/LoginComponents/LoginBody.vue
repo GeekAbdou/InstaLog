@@ -1,5 +1,5 @@
 <template>
-    <div class="login-body">
+    <section class="login-body">
         <div class="login-body__login-with">
             <button class="login-body__login-with--google">
                 <img
@@ -35,7 +35,7 @@
         <div class="login-body__separator"></div>
 
         <div class="login-body__login-form"><LoginForm /></div>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">
