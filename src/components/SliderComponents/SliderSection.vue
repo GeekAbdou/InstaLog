@@ -1,5 +1,5 @@
 <template>
-    <div class="slider-section">
+    <section class="slider-section">
         <div class="slider-section__carousel">
             <slide-item
                 v-for="slide in slides"
@@ -26,7 +26,7 @@
                 ></span>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">

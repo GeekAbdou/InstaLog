@@ -1,5 +1,5 @@
 <template>
-    <div class="login-header">
+    <section class="login-header">
         <div class="login-header__logo">
             <img
                 class="login-header__logo__img"
@@ -9,7 +9,7 @@
         </div>
 
         <p class="login-header__login__title">Log in to Instabug</p>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">

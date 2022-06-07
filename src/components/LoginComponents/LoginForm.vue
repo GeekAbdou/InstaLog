@@ -1,5 +1,5 @@
 <template>
-    <div class="login-wrapper">
+    <section class="login-wrapper">
         <form class="login-wrapper__login-form" @submit.prevent="login">
             <transition name="fade">
                 <div
@@ -54,7 +54,7 @@
 
             <a class="signup-link--link-hover" href="/login#">Login via SSO</a>
         </div>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">

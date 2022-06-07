@@ -1,11 +1,11 @@
 <template>
-    <div class="login-wrapper">
+    <section class="login-wrapper">
         <Login-Header />
 
         <Login-Body />
 
         <Login-Footer />
-    </div>
+    </section>
 </template>
 
 <script lang="ts">
