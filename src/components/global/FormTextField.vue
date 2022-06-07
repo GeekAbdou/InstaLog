@@ -79,9 +79,7 @@ export default defineComponent({
 
         function keyPressed(e: Event) {
             // InputChange with Debouncing
-            let timer: ReturnType<typeof setTimeout> = 300
-            if (timer) clearTimeout(timer)
-            timer = setTimeout(() => {
+            setTimeout(() => {
                 emit('inputChanged', e)
             }, 300)
         }

@@ -62,11 +62,11 @@ export default defineComponent({
 
         let currentSlide = ref(1)
         const slidesLength = slides.length
-        const slideSpeed = ref(4500)
+        const slideSpeed = 4500
         const slideDirection = ref('slide-left')
         let intervalHandle = setInterval(() => {
             nextSlide()
-        }, slideSpeed.value)
+        }, slideSpeed)
 
         function nextSlide() {
             if (currentSlide.value === slidesLength) {
@@ -90,7 +90,7 @@ export default defineComponent({
             clearInterval(intervalHandle)
             intervalHandle = setInterval(() => {
                 nextSlide()
-            }, slideSpeed.value)
+            }, slideSpeed)
         }
 
         return {

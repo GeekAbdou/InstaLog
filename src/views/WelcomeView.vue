@@ -23,6 +23,7 @@ export default {
     setup() {
         const store = useStore()
         const email = store.getters.userEmail
+
         function logout() {
             store.dispatch('logout')
             router.push('/login')

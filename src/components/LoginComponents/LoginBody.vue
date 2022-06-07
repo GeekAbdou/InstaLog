@@ -1,7 +1,7 @@
 <template>
     <div class="login-body">
         <div class="login-body__login-with">
-            <button class="login-body__login-with__btn google">
+            <button class="login-body__login-with--google">
                 <img
                     draggable="false"
                     class="login-body__login-with__img"
@@ -11,7 +11,7 @@
                 <span class="login-body__login-with__text">Google</span>
             </button>
 
-            <button class="login-body__login-with__btn github">
+            <button class="login-body__login-with--github">
                 <img
                     draggable="false"
                     class="login-body__login-with__img"
@@ -21,7 +21,7 @@
                 <span class="login-body__login-with__text">GitHub</span>
             </button>
 
-            <button class="login-body__login-with__btn microsoft">
+            <button class="login-body__login-with--microsoft">
                 <img
                     draggable="false"
                     class="login-body__login-with__img"
@@ -58,17 +58,37 @@ export default defineComponent({
         display: flex;
         flex-direction: column;
         margin-top: 16px;
-        &__btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 40px;
-            margin-bottom: 8px;
-            padding: 4px 4px;
-            position: relative;
-            border-radius: 4px;
-            cursor: pointer;
+
+        &--google {
+            @include logwith-btn();
+            color: #fff;
+            background-color: #4285f4;
+            border: none;
+            &:hover {
+                background-color: #1669f2;
+            }
         }
+
+        &--github {
+            @include logwith-btn();
+            background-color: #333;
+            color: #fff;
+            border: none;
+            &:hover {
+                background-color: #1b1a1a;
+            }
+        }
+
+        &--microsoft {
+            @include logwith-btn();
+            color: #858585;
+            border: 1px solid #8c8c8c;
+            background-color: #fff;
+            &:hover {
+                background-color: #e0dbdb;
+            }
+        }
+
         &__img {
             position: absolute;
             left: 0;
@@ -94,30 +114,6 @@ export default defineComponent({
             padding: 0 12px;
             color: #585858;
         }
-    }
-}
-.google {
-    color: #fff;
-    background-color: #4285f4;
-    border: none;
-    &:hover {
-        background-color: #1669f2;
-    }
-}
-.github {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    &:hover {
-        background-color: #1b1a1a;
-    }
-}
-.microsoft {
-    color: #858585;
-    border: 1px solid #8c8c8c;
-    background-color: #fff;
-    &:hover {
-        background-color: #e0dbdb;
     }
 }
 </style>
