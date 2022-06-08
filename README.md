@@ -1,5 +1,5 @@
 
-<h1 align="center">InstaLog - Instabug FrontEnd Intership Challenge</h1>
+<h1 align="center">InstaLog - Instabug FrontEnd Internship Challenge</h1>
 
 
 <div align="center">
