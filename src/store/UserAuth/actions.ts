@@ -7,9 +7,9 @@ import { registeredUsers } from '@/store/UserAuth/users'
 export default {
     login({ commit }: { commit: Commit }, user: UserType) {
         const userIndex = registeredUsers.findIndex(
-            (userData) =>
-                userData.email === user.email &&
-                userData.password === user.password
+            (usersData) =>
+                usersData.email === user.email &&
+                usersData.password === user.password
         )
 
         if (userIndex !== -1) {
